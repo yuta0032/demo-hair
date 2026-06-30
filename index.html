@@ -359,7 +359,7 @@ function vCal(){
   // 既存予約をマップ
   const booked = {};
   DEMO.future.forEach(f=>{ booked[f.date+'|'+f.time]=f; });
-  const iso = d=>d.toISOString().slice(0,10);
+  const iso = d=>localISO(d);
   let h = `<div class="card"><h2>カレンダー</h2><p class="sub">空き◯・予約あり・閉じた時間が色で分かります。空き枠をタップでブロック（即・再タップで解除）。</p>`;
   h += `<div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:8px;"><span>‹ 前の週</span><span style="font-weight:700;color:var(--ink)">${fmtDate(iso(days[0]))} 〜</span><span>次の週 ›</span></div>`;
   h += `<div class="cal"><div class="h"></div>`;
@@ -810,7 +810,7 @@ function renderReserve(){
   while(days.length<14){ if(d.getDay()!==2) days.push(new Date(d)); d.setDate(d.getDate()+1); cnt++; if(cnt>30)break; }
   const slots=['10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30'];
   const wd=['日','月','火','水','木','金','土'];
-  const iso=dd=>dd.toISOString().slice(0,10);
+  const iso=dd=>localISO(dd);
   // 予約済みマップ
   const taken={}; DEMO.future.forEach(f=>{ taken[f.date+'|'+f.time]=true; });
   // ランダムにいくつか満枠を作る（デモらしく）
@@ -1188,6 +1188,64 @@ function showMyPage(){
     (myBookings.length?myBookings.map(b=>`<div class="fmcard"><div><b>${fmtDate(b.date)} ${b.time||''}</b><br><span class="sub">${b.menu_name}</span></div><span class="fmprice">${yen(b.price)}</span></div>`).join(''):'<p class="fp">ご予約はありません</p>')+
     `</section><div style="text-align:center;padding:24px;"><a class="fbtn-cta" id="backHome">トップへ戻る</a></div></div>`;
   $('#backHome').onclick=()=>mountFront();
+}
+
+// ===== 定休日・臨時休業の共通判定 =====
+function localISO(d){ const y=d.getFullYear(), m=String(d.getMonth()+1).padStart(2,'0'), dd=String(d.getDate()).padStart(2,'0'); return `${y}-${m}-${dd}`; }
+const WD_NAME = ['日','月','火','水','木','金','土'];
+function isClosedDay(dateObj){
+  // 臨時休業
+  const iso = localISO(dateObj);
+  if(DEMO.settings && DEMO.settings.special_off && DEMO.settings.special_off.some(o=>o.date===iso)) return true;
+  // 定休日（曜日・第N週対応）
+  if(DEMO.settings && DEMO.settings.closed_rules){
+    const wd = dateObj.getDay();
+    for(const r of DEMO.settings.closed_rules){
+      const rwd = WD_NAME.indexOf(r.weekday);
+      if(rwd===wd){
+        if(!r.nth) return true; // 毎週
+        // 第N週判定
+        const nth = Math.floor((dateObj.getDate()-1)/7)+1;
+        if(nth===r.nth) return true;
+      }
+    }
+  }
+  return false;
+}
+
+// 予約グリッド（front）の日付生成を定休日連動に差し替え
+function renderReserve(){
+  const box = $('#reserveBox');
+  box.innerHTML = `
+    <div class="rstep"><div class="rs-lab">① メニューを選ぶ（複数可）</div>
+      <div class="rmenus">${DEMO.menus.filter(m=>m.active!==false).sort((a,b)=>(a.order||0)-(b.order||0)).map(m=>`<label class="rmenu"><input type="checkbox" value="${m.id}"> <span>${m.name}</span><span class="rmprice">${yen(m.price)}</span></label>`).join('')}</div></div>
+    <div class="rstep"><div class="rs-lab">② 担当を選ぶ</div>
+      <div class="rstaff">${DEMO.staff.filter(s=>s.active!==false).map(s=>`<span class="rst" data-id="${s.id}">${s.name}</span>`).join('')}<span class="rst" data-id="any">指名なし</span></div></div>
+    <div class="rstep"><div class="rs-lab">③ 日時を選ぶ</div>
+      <div class="hpwrap"><div class="hpgrid" id="hpgrid"></div></div>
+      <div class="hphint">◯ 空き ／ × 満・休 ／ ←→ 横スクロールで先の日付</div></div>
+    <div class="rsummary" id="rsum">メニューを選んでください</div>
+    <button class="fbtn-cta full" id="doReserve" disabled>この内容で予約する</button>`;
+  $$('.rmenu input').forEach(c=>c.onchange=()=>syncResv());
+  $$('.rst').forEach(s=>s.onclick=()=>{ $$('.rst').forEach(x=>x.classList.remove('on')); s.classList.add('on'); resv.stylist=s.dataset.id; syncResv(); });
+  // 定休日を除外して14営業日を集める
+  const days=[]; let d=new Date(2026,5,29); let cnt=0;
+  while(days.length<14){ if(!isClosedDay(d)) days.push(new Date(d)); d.setDate(d.getDate()+1); cnt++; if(cnt>40)break; }
+  const slots=['10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30'];
+  const iso=dd=>localISO(dd);
+  const taken={}; DEMO.future.forEach(f=>{ taken[f.date+'|'+f.time]=true; });
+  function isOpen(date,time){ if(taken[date+'|'+time])return false; const h=(date+time).split('').reduce((a,c)=>a+c.charCodeAt(0),0); return h%5!==0; }
+  let g='<table class="hptable"><thead><tr><th class="hpcorner"></th>';
+  days.forEach(dd=>{ const dow=dd.getDay(); const cls=dow===0?'sun':(dow===6?'sat':''); g+=`<th class="hpday ${cls}">${WD_NAME[dow]}<br><b>${dd.getMonth()+1}/${dd.getDate()}</b></th>`; });
+  g+='</tr></thead><tbody>';
+  slots.forEach(s=>{ g+=`<tr><td class="hptime">${s}</td>`; days.forEach(dd=>{ const date=iso(dd); const ok=isOpen(date,s); g+= ok?`<td class="hpcell ok" data-d="${date}" data-t="${s}">◯</td>`:`<td class="hpcell x">×</td>`; }); g+='</tr>'; });
+  g+='</tbody></table>';
+  $('#hpgrid').innerHTML=g;
+  $$('.hpcell.ok').forEach(c=>c.onclick=()=>{
+    if(c.classList.contains('sel')){ c.classList.remove('sel'); resv.date=null; resv.time=null; syncResv(); return; }
+    $$('.hpcell').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); resv.date=c.dataset.d; resv.time=c.dataset.t; syncResv();
+  });
+  $('#doReserve').onclick=submitReserve;
 }
 
 buildShell(); routeRender();
