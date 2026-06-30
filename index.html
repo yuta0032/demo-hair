@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DEMO HAIR SALON ｜ 統合デモ</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMyODM4NEEiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNCMDhENTciIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIj48Y2lyY2xlIGN4PSIyMiIgY3k9IjQ0IiByPSI3Ii8+PGNpcmNsZSBjeD0iNDIiIGN5PSI0NCIgcj0iNyIvPjxwYXRoIGQ9Ik0yNiwzOSBMNDYsMTciLz48cGF0aCBkPSJNMzgsMzkgTDE4LDE3Ii8+PC9nPjwvc3ZnPg==">
-<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAD4klEQVRYhcWW308UVxTHP2d2dmZn+bU1Ck2wpCmCGJVSSRRUtDygFdsmRHxoY21DH/qkf0P/hz6StjFNTZtG0xSLaWhSSkyAIkGRHytSq8LGIFAFC8uww9w+LLuhLbs7W1G+T5t7vvecz7177tkV1qj04LFCw/Wdd5WcFKEMyGFjNAeMIuprJ0Tr+NWrdiIgiQ87a0+eFqU+B/I2qGgqhV3xNY11t4WTAKvFv10L9HylZkX5akd7r9yR0oPHCv2uPs7zP/m/NfhyYLFaM1zf+U0oDlD5MBr8QFPI25tQHAARdVYDKd0sAKWkSgOVm86UYwq5ppZ18lxTI8dM39MihDJmbtoX4FxDkFDQO0QoqHGuIUjTvkBGb8asHcM2hg4tR6yMJ4L4jbUcsTD0+N5nBpiad/miK0rIEj6qszD01BB+Hc4esngpqHHhWpSpeffZAQAm/lzhYs8SxSEfHx4KoK+zS9OEM7UWr2zx8U1vlHszK15SewMACD90+K4vymvbdE7vt5A1FyECp6oDlBfpXO5fYjjieE2L7tkJDNx3yLdsTuw1idoBvh9YAqCx0qT6VZ32QZvrf8SySZkdAMCv4WVyTaGu3OBx1EWAunKD7vFlum4vZ5suewCA9kGboCG8tccEgZsTDj/cyNzx6yn7CQMoBUMRBxEQBSOTMZT6X/W93YCmCdvy4qzTT12KQxrvHQgw+WQF14Xm/RZz9iIPZt1/+Fw3M1VaABGoLfXTsMfE8sfbfslR+AQeLyq+7IoC8El9kI/rLFYUBFbnRDSm6Biy6f49/e2kBXhzp8nxvQbDEYcbD+JP650qk3xLGI04LNjxzKORFY5W+IlGFZf64i+jqkTn3TcCmLrGL+HU/ZESwO+D+l1+BidiXOxZSq7fnXY4VW1Ru0Pn55H4Wu0OnZGIw6X+pSTUrckY79dY1O/yc+2OTSzFXErZhEUFPgxdkidPaMFW9N9fxtCFwnwt6bt+L5YsntDNiVjSl0opI2r1i5MMvz9efVkDPJp3sR14vcT/n1hViY7twKM55dmXSr6t28s+XS/gKlDA4TKD7Vt8uAqKCjROVJrsLvbTMWxzd3rFsy+VpKKm8QlQsG5Q4ECpn+O7TSxj9XktK34atuld87y8+tbRvFTUNHYCR1NaAE1g6+qAmXnqkmq+ePWt0YAuIl8ppdICuCreE5nk1ZeUUm1akblwAbjlfdeGac519M+0zs5OB5dmULMvsLgCaRnrb5vRAMK/tY+5oh8WGH0BxedAmsM9P14G8CVWZyfHZooKqloxYlMIIaXIEyHz/2pPkr9ADaFodR39zO2+K/2JyN81s5ANeCHVpAAAAABJRU5ErkJggg==">
-<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
-
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 
@@ -236,6 +231,58 @@ label{font-size:11px;color:var(--muted);display:block;margin:8px 0 3px;}
 .tv-now-dot{position:absolute;left:-5px;top:-5px;width:8px;height:8px;border-radius:50%;background:#E0856B;}
 .tv-ev{position:absolute;left:4px;right:4px;color:#fff;border-radius:5px;padding:4px 8px;font-size:11.5px;line-height:1.3;overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.12);}
 .tv-ev b{font-family:"Cormorant Garamond",serif;font-size:13px;}
+
+/* ===== 予約グリッド ゆとり拡大（タップしやすく）===== */
+.hptable{min-width:760px !important;}
+.hpcell{padding:15px 6px !important;font-size:15px !important;min-width:50px;}
+.hpday{padding:10px 6px !important;min-width:50px;font-size:12px !important;}
+.hpday b{font-size:16px !important;}
+.hptime{padding:13px 8px !important;min-width:54px;font-size:13px !important;}
+.hpcorner{min-width:54px;}
+.hpcell.ok{font-weight:600;}
+/* スマホで横スクロールしやすいよう、つかみやすい高さ */
+.hpwrap{-webkit-overflow-scrolling:touch;}
+
+/* ===== メニューカード 折り返し崩れ修正 ===== */
+.fmcard{flex-wrap:nowrap !important;align-items:flex-start !important;gap:10px;}
+.fmname{display:flex;align-items:center;gap:8px;flex:0 0 auto;white-space:nowrap;flex-wrap:wrap;max-width:42%;}
+.fmcat{flex:none;white-space:nowrap;margin-left:0 !important;display:inline-block;}
+.fmdesc{flex:1 1 auto;font-size:11.5px;color:var(--muted);margin-top:0 !important;align-self:center;padding:0 6px;}
+.fmmeta{flex:0 0 auto;text-align:right;white-space:nowrap;}
+@media(max-width:520px){
+  .fmcard{flex-wrap:wrap !important;}
+  .fmname{max-width:100%;}
+  .fmdesc{flex-basis:100%;padding:4px 0 0;}
+  .fmmeta{margin-left:auto;}
+}
+
+/* ===== 予約グリッド はみ出し修正（枠内で横スクロール）===== */
+.hpwrap{
+  overflow-x:auto !important;
+  overflow-y:hidden;
+  max-width:100% !important;
+  width:100%;
+  -webkit-overflow-scrolling:touch;
+  display:block;
+}
+.rstep{max-width:100%;overflow:hidden;}
+.fsec.reserve{overflow:hidden;}
+.hptable{display:table;}
+
+/* ===== 週ナビ ===== */
+.wknav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.wkarrow{font-size:12px;color:var(--wine);cursor:pointer;padding:6px 10px;border:1px solid var(--hair);border-radius:6px;background:#fff;white-space:nowrap;}
+.wkarrow:hover{border-color:var(--gold);}
+.wklabel{font-weight:700;color:var(--ink);font-size:13px;letter-spacing:.03em;}
+.hpday.closed{color:#C4BDB2 !important;background:#F2EFEA !important;}
+.hpclosed{font-size:9px;color:#A66B57;font-weight:700;}
+/* ===== 定休日 曜日ピッカー ===== */
+.wd-pick{display:flex;gap:6px;flex-wrap:wrap;}
+.wd-btn{width:42px;height:42px;display:flex;align-items:center;justify-content:center;border:1px solid var(--hair);border-radius:8px;background:#fff;cursor:pointer;font-weight:700;font-size:15px;color:var(--ink);transition:.15s;}
+.wd-btn.sun{color:var(--c-red);}
+.wd-btn.sat{color:var(--c-blue);}
+.wd-btn.on{background:var(--wine);color:#fff !important;border-color:var(--wine);}
+.wd-btn:hover:not(.on){border-color:var(--gold);}
 
 
 /* ===== 本番フル機能 追加CSS ===== */
@@ -1043,22 +1090,28 @@ function shiftStaff(i){
 // ===== 第5弾：営業設定（定休日・週開始・臨時休業・きざみ）=====
 function vSettings(){
   const s=DEMO.settings;
-  let h=`<div class="card"><h2>営業設定</h2><p class="sub">お店全体の営業ルール。お客様サイトの受付可否に反映されます。</p>
+  const closedDays = s.closed_rules.filter(r=>!r.nth).map(r=>r.weekday); // 毎週の定休曜日
+  let h=`<div class="card"><h2>営業設定</h2><p class="sub">お店全体の営業ルール。お客様サイトの予約カレンダーに反映されます。</p>
     <label>営業時間</label><div style="display:flex;gap:8px;"><input id="o-open" type="time" value="${s.hours_open}"><input id="o-close" type="time" value="${s.hours_close}"></div>
     <label>週のはじまり</label><select id="o-week"><option ${s.week_start==='日'?'selected':''}>日</option><option ${s.week_start==='月'?'selected':''}>月</option></select>
     <label>予約の時間きざみ</label><select id="o-step"><option ${s.step_min==30?'selected':''}>30</option><option ${s.step_min==15?'selected':''}>15</option><option ${s.step_min==60?'selected':''}>60</option></select>分
-    <h3 class="sec-h">定休日</h3>`;
-  s.closed_rules.forEach((r,i)=>h+=`<div class="row" style="cursor:default"><span>毎週 ${r.weekday}曜${r.nth?`（第${r.nth}）`:''}</span><span class="iconbtn del" data-cr="${i}">🗑</span></div>`);
-  h+=`<button class="btn ghost" id="cr-add" style="margin-top:6px;font-size:12px;">＋ 定休日を追加</button>
+    <h3 class="sec-h">定休日（曜日をタップで選択）</h3>
+    <div class="wd-pick" id="wdPick">${WD_NAME.map(w=>`<span class="wd-btn ${closedDays.includes(w)?'on':''} ${w==='日'?'sun':w==='土'?'sat':''}" data-wd="${w}">${w}</span>`).join('')}</div>
+    <p class="sub" style="margin-top:6px;">選んだ曜日が定休日になります（複数可）。</p>
     <h3 class="sec-h">臨時休業</h3>`;
   s.special_off.forEach((o,i)=>h+=`<div class="row" style="cursor:default"><span>${o.date}　${o.note}</span><span class="iconbtn del" data-so="${i}">🗑</span></div>`);
   h+=`<button class="btn ghost" id="so-add" style="margin-top:6px;font-size:12px;">＋ 臨時休業を追加</button>
     <button class="btn" id="o-save" style="margin-top:16px;display:block;">設定を保存</button></div>`;
   V().innerHTML=h;
-  $('#o-save').onclick=()=>{ s.hours_open=$('#o-open').value; s.hours_close=$('#o-close').value; s.week_start=$('#o-week').value; s.step_min=+$('#o-step').value; toast('営業設定を保存しました'); };
-  $$('[data-cr]').forEach(b=>b.onclick=()=>{ s.closed_rules.splice(+b.dataset.cr,1); vSettings(); });
+  // 曜日トグル
+  $$('.wd-btn').forEach(btn=>btn.onclick=()=>{
+    const wd=btn.dataset.wd;
+    if(btn.classList.contains('on')){ btn.classList.remove('on'); s.closed_rules=s.closed_rules.filter(r=>!(r.weekday===wd&&!r.nth)); }
+    else { btn.classList.add('on'); s.closed_rules.push({weekday:wd,nth:null,note:'定休日'}); }
+    toast(btn.classList.contains('on')?wd+'曜を定休日に':wd+'曜の定休を解除');
+  });
+  $('#o-save').onclick=()=>{ s.hours_open=$('#o-open').value; s.hours_close=$('#o-close').value; s.week_start=$('#o-week').value; s.step_min=+$('#o-step').value; toast('営業設定を保存しました（予約カレンダーに反映されます）'); };
   $$('[data-so]').forEach(b=>b.onclick=()=>{ s.special_off.splice(+b.dataset.so,1); vSettings(); });
-  $('#cr-add').onclick=()=>{ const wd=prompt('定休日の曜日（例：火）'); if(wd){ s.closed_rules.push({weekday:wd,nth:null,note:'定休日'}); vSettings(); } };
   $('#so-add').onclick=()=>{ const d=prompt('臨時休業日（例：2026-08-13）'); if(d){ s.special_off.push({date:d,note:'臨時休業'}); vSettings(); } };
 }
 
@@ -1227,30 +1280,50 @@ function renderReserve(){
     <div class="rstep"><div class="rs-lab">② 担当を選ぶ</div>
       <div class="rstaff">${DEMO.staff.filter(s=>s.active!==false).map(s=>`<span class="rst" data-id="${s.id}">${s.name}</span>`).join('')}<span class="rst" data-id="any">指名なし</span></div></div>
     <div class="rstep"><div class="rs-lab">③ 日時を選ぶ</div>
+      <div class="wknav"><span class="wkarrow" id="wkPrev">‹ 前の週</span><span class="wklabel" id="wkLabel"></span><span class="wkarrow" id="wkNext">次の週 ›</span></div>
       <div class="hpwrap"><div class="hpgrid" id="hpgrid"></div></div>
-      <div class="hphint">◯ 空き ／ × 満・休 ／ ←→ 横スクロールで先の日付</div></div>
+      <div class="hphint">◯ 空き ／ × 満・休 ／ 横スクロールで時間帯</div></div>
     <div class="rsummary" id="rsum">メニューを選んでください</div>
     <button class="fbtn-cta full" id="doReserve" disabled>この内容で予約する</button>`;
   $$('.rmenu input').forEach(c=>c.onchange=()=>syncResv());
   $$('.rst').forEach(s=>s.onclick=()=>{ $$('.rst').forEach(x=>x.classList.remove('on')); s.classList.add('on'); resv.stylist=s.dataset.id; syncResv(); });
-  // 定休日を除外して14営業日を集める
-  const days=[]; let d=new Date(2026,5,29); let cnt=0;
-  while(days.length<14){ if(!isClosedDay(d)) days.push(new Date(d)); d.setDate(d.getDate()+1); cnt++; if(cnt>40)break; }
+  if(typeof window.wkOffset==='undefined') window.wkOffset=0;
+  renderWeekGrid();
+  $('#wkPrev').onclick=()=>{ if(window.wkOffset>0){ window.wkOffset--; renderWeekGrid(); } };
+  $('#wkNext').onclick=()=>{ window.wkOffset++; renderWeekGrid(); };
+  $('#doReserve').onclick=submitReserve;
+}
+
+function renderWeekGrid(){
+  const today=new Date(2026,5,29);
+  // 週の始まり曜日（設定）
+  const weekStartName = (DEMO.settings&&DEMO.settings.week_start)||'日';
+  const weekStartIdx = WD_NAME.indexOf(weekStartName); // 0=日
+  // 表示する週の起点：today を含む週の頭から wkOffset 週ぶん進める
+  const base=new Date(today);
+  // today の曜日から、週の頭（weekStart）まで戻す
+  let back=(base.getDay()-weekStartIdx+7)%7;
+  base.setDate(base.getDate()-back + window.wkOffset*7);
+  // 7日分（定休日も枠は出すが×表示）
+  const days=[]; for(let i=0;i<7;i++){ const d=new Date(base); d.setDate(base.getDate()+i); days.push(d); }
+  // 週ラベル
+  const w0=days[0], w6=days[6];
+  $('#wkLabel').textContent=`${w0.getMonth()+1}/${w0.getDate()} 〜 ${w6.getMonth()+1}/${w6.getDate()}`;
+  // 前の週ボタンの有効/無効（過去には行けない）
+  const prev=$('#wkPrev'); if(prev) prev.style.visibility = window.wkOffset>0?'visible':'hidden';
   const slots=['10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30'];
-  const iso=dd=>localISO(dd);
   const taken={}; DEMO.future.forEach(f=>{ taken[f.date+'|'+f.time]=true; });
   function isOpen(date,time){ if(taken[date+'|'+time])return false; const h=(date+time).split('').reduce((a,c)=>a+c.charCodeAt(0),0); return h%5!==0; }
   let g='<table class="hptable"><thead><tr><th class="hpcorner"></th>';
-  days.forEach(dd=>{ const dow=dd.getDay(); const cls=dow===0?'sun':(dow===6?'sat':''); g+=`<th class="hpday ${cls}">${WD_NAME[dow]}<br><b>${dd.getMonth()+1}/${dd.getDate()}</b></th>`; });
+  days.forEach(dd=>{ const dow=dd.getDay(); const cls=dow===0?'sun':(dow===6?'sat':''); const closed=isClosedDay(dd); g+=`<th class="hpday ${cls} ${closed?'closed':''}">${WD_NAME[dow]}<br><b>${dd.getMonth()+1}/${dd.getDate()}</b>${closed?'<br><span class="hpclosed">休</span>':''}</th>`; });
   g+='</tr></thead><tbody>';
-  slots.forEach(s=>{ g+=`<tr><td class="hptime">${s}</td>`; days.forEach(dd=>{ const date=iso(dd); const ok=isOpen(date,s); g+= ok?`<td class="hpcell ok" data-d="${date}" data-t="${s}">◯</td>`:`<td class="hpcell x">×</td>`; }); g+='</tr>'; });
+  slots.forEach(s=>{ g+=`<tr><td class="hptime">${s}</td>`; days.forEach(dd=>{ const date=localISO(dd); if(isClosedDay(dd)){ g+=`<td class="hpcell x">×</td>`; return; } const ok=isOpen(date,s); g+= ok?`<td class="hpcell ok" data-d="${date}" data-t="${s}">◯</td>`:`<td class="hpcell x">×</td>`; }); g+='</tr>'; });
   g+='</tbody></table>';
   $('#hpgrid').innerHTML=g;
   $$('.hpcell.ok').forEach(c=>c.onclick=()=>{
     if(c.classList.contains('sel')){ c.classList.remove('sel'); resv.date=null; resv.time=null; syncResv(); return; }
     $$('.hpcell').forEach(x=>x.classList.remove('sel')); c.classList.add('sel'); resv.date=c.dataset.d; resv.time=c.dataset.t; syncResv();
   });
-  $('#doReserve').onclick=submitReserve;
 }
 
 buildShell(); routeRender();
