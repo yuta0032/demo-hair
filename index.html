@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DEMO HAIR SALON ｜ 統合デモ</title>
+<title>DEMO HAIR MAKE</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 
@@ -232,13 +232,13 @@ label{font-size:11px;color:var(--muted);display:block;margin:8px 0 3px;}
 .tv-ev{position:absolute;left:4px;right:4px;color:#fff;border-radius:5px;padding:4px 8px;font-size:11.5px;line-height:1.3;overflow:hidden;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.12);}
 .tv-ev b{font-family:"Cormorant Garamond",serif;font-size:13px;}
 
-/* ===== 予約グリッド ゆとり拡大（タップしやすく）===== */
-.hptable{min-width:760px !important;}
-.hpcell{padding:15px 6px !important;font-size:15px !important;min-width:50px;}
-.hpday{padding:10px 6px !important;min-width:50px;font-size:12px !important;}
-.hpday b{font-size:16px !important;}
-.hptime{padding:13px 8px !important;min-width:54px;font-size:13px !important;}
-.hpcorner{min-width:54px;}
+/* ===== 予約グリッド コンパクト（週表示・画面内に収める）===== */
+.hptable{min-width:0 !important;width:100%;}
+.hpcell{padding:9px 3px !important;font-size:13px !important;min-width:36px;}
+.hpday{padding:7px 3px !important;min-width:36px;font-size:11px !important;}
+.hpday b{font-size:13px !important;}
+.hptime{padding:8px 5px !important;min-width:42px;font-size:11.5px !important;}
+.hpcorner{min-width:42px;}
 .hpcell.ok{font-weight:600;}
 /* スマホで横スクロールしやすいよう、つかみやすい高さ */
 .hpwrap{-webkit-overflow-scrolling:touch;}
